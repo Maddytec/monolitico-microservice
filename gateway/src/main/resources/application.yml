@@ -9,5 +9,13 @@ zuul:
   routes:
     index:
       sensitiveHeaders:
-      path: /**
+      path: /usuario/login
       url: http://127.0.0.1:8090/
+    usuario:
+      sensitiveHeaders:
+      path: /usuario/**
+      url: http://127.0.0.1:8090/usuario/
+    grupo:
+      sensitiveHeaders:
+      path: /grupo/**
+      url: http://127.0.0.1:8090/grupo/

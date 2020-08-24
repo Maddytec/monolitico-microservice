@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
 @SpringBootApplication
-public class LoginApplication {
+public class LoginApplication extends SpringBootServletInitializer {
 
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(LoginApplication.class);

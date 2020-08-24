@@ -42,19 +42,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		String[] resources = new String[]{
-				"/**"
-		};
-
-		http.csrf()
-				.and()
+		http.csrf().disable()
 				.authorizeRequests()
-				.antMatchers(resources).permitAll()
+				.anyRequest()
+				.authenticated();
 
-		;
-
-		//http.addFilterBefore(new AuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
-		//http.addFilter(corsFilter());
+		http.addFilterBefore(new AuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+		http.addFilter(corsFilter());
 	}
 
 	@Bean(name = BeanIds.AUTHENTICATION_MANAGER)

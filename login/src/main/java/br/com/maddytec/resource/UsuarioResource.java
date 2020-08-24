@@ -35,10 +35,12 @@ import br.com.maddytec.model.PageModel;
 import br.com.maddytec.model.PageRequestModel;
 import br.com.maddytec.security.JwtManager;
 import br.com.maddytec.service.UsuarioService;
+import lombok.extern.log4j.Log4j2;
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "usuario")
+@Log4j2
 public class UsuarioResource {
 
 	@Autowired
@@ -63,7 +65,7 @@ public class UsuarioResource {
 	@PutMapping("/{id}")
 	public ResponseEntity<Usuario> update(@PathVariable(name = "id") Long id,
 			@RequestBody @Valid UsuarioUpdateDTO usuarioUpdateDTO) {
-
+		log.info("PUT - ATUALIZANDO USUARIO: {0}", usuarioUpdateDTO);
 		Usuario usuario = new Usuario();
 		BeanUtils.copyProperties(usuarioUpdateDTO, usuario);
 		usuario.setId(id);
@@ -80,6 +82,7 @@ public class UsuarioResource {
 
 	@GetMapping
 	public ResponseEntity<List<Usuario>> findAll() {
+		log.info("LISTA DE USUARIOS");
 		List<Usuario> usuarios = usuarioService.findAll();
 		return ResponseEntity.ok(usuarios);
 	}
@@ -88,7 +91,7 @@ public class UsuarioResource {
 	public ResponseEntity<PageModel<Usuario>> findAll(
 			@RequestParam(value = "page", defaultValue = "0") int page,
 			@RequestParam(value = "size", defaultValue = "10") int size) {
-
+		log.info("LISTA DE USUARIOS COM LAZ");
 		PageRequestModel pageRequestModel = new PageRequestModel(page, size);
 
 		PageModel<Usuario> pageModel = usuarioService.findAllOnLazyMode(pageRequestModel);
@@ -120,7 +123,7 @@ public class UsuarioResource {
 	@PatchMapping("/{id}")
 	public ResponseEntity<?> updateRole(@RequestBody @Valid UserUpdateRoleDTO userUpdateRoleDTO,
 			@PathVariable(name = "id") Long id) {
-
+		log.info("ATUALIZANDO USUARIO: {}", userUpdateRoleDTO);
 		usuarioService.updateRole(
 				Usuario.builder()
 				.id(id)

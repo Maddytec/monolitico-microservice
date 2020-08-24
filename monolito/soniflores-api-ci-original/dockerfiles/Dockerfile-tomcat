@@ -1,0 +1,10 @@
+FROM tomcat:8.5-jre8
+
+ADD . /code
+WORKDIR /code
+
+COPY tomcat-users.xml $CATALINA_HOME/conf/tomcat-users.xml
+COPY context.xml /usr/local/tomcat/webapps/manager/META-INF/context.xml
+COPY *.war $CATALINA_HOME/webapps/
+
+EXPOSE 8080:8080

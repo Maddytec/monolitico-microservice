@@ -19,3 +19,19 @@ zuul:
       sensitiveHeaders:
       path: /grupo/**
       url: http://127.0.0.1:8090/grupo/
+    produto:
+      sensitiveHeaders:
+      path: /produto/**
+      url: http://127.0.0.1:8091/produto/
+    produto-consulta:
+      sensitiveHeaders:
+      path: /produto-consulta/**
+      url: http://127.0.0.1:8091/produto-consulta/
+    categoria:
+      sensitiveHeaders:
+      path: /categoria/**
+      url: http://127.0.0.1:8091/categoria/
+    categoria-consulta:
+      sensitiveHeaders:
+      path: /categoria-consulta/**
+      url: http://127.0.0.1:8091/categoria-consulta/

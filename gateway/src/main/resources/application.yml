@@ -35,3 +35,11 @@ zuul:
       sensitiveHeaders:
       path: /categoria-consulta/**
       url: http://127.0.0.1:8091/categoria-consulta/
+    cliente:
+      sensitiveHeaders:
+      path: /cliente/**
+      url: http://127.0.0.1:8092/cliente/
+      cliente-consulta:
+        sensitiveHeaders:
+        path: /cliente-consulta/**
+        url: http://127.0.0.1:8092/cliente-consulta/

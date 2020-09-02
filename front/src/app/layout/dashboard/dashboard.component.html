@@ -1,0 +1,28 @@
+<div [@routerTransition] style="margin-left: 30px;">
+    <h2 class="text-muted">Um presente da natureza <small>e Decorar é uma arte!</small></h2>
+    <div class="row">
+        <div class="col-md-12">
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let slider of sliders">
+                    <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
+                    <div class="carousel-caption">
+                        <h3>{{slider.label}}</h3>
+                        <p>{{slider.text}}</p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'primary'" [icon]="'fa-user-plus'" [count]="01" [label]="'Cliente'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'success'" [icon]="'fa-shopping-cart'" [count]="02" [label]="'Pedido'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [routerLink]="['/produto']" [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="03" [label]="'Produto'" ></app-stat>
+        </div>
+    </div>
+</div>

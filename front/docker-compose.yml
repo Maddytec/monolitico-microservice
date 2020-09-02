@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+    front:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      image: maddytec/soniflores-front:1.0
+      ports:
+        - 80:80
+      network_mode: "host"

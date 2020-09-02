@@ -1,0 +1,252 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+    <div class="list-group">
+        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-dashboard"></i>&nbsp;
+            <span>{{ 'Principal' | translate }}</span>
+        </a>
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('pages_cliente')">
+                <i class="fa fa-plus"></i>&nbsp;
+                <span>{{ 'Cliente' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'pages_cliente'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/cliente']"
+                            class="list-group-item">
+                            <i class="fa fa-fw fa-edit"></i>&nbsp;
+                            <span>{{ 'Cadastrar cliente' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/cliente-consulta']"
+                            class="list-group-item">
+                            <i class="fa fa-fw fa-edit"></i>&nbsp;
+                            <span>{{ 'Consultar cliente' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('pages_pedido')">
+                <i class="fa fa-plus"></i>&nbsp;
+                <span>{{ 'Pedido' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'pages_pedido'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/pedido']"
+                            class="list-group-item">
+                            <i class="fa fa-fw fa-edit"></i>&nbsp;
+                            <span>{{ 'Novo pedido' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/pedido-editar']"
+                            class="list-group-item">
+                            <i class="fa fa-fw fa-edit"></i>&nbsp;
+                            <span>{{ 'Editar pedido' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/pedido-consulta']"
+                            class="list-group-item">
+                            <i class="fa fa-fw fa-edit"></i>&nbsp;
+                            <span>{{ 'Consultar pedido' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('pages')">
+                <i class="fa fa-plus"></i>&nbsp;
+                <span>{{ 'Produto' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'pages'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/produto']"
+                            class="list-group-item">
+                            <i class="fa fa-fw fa-edit"></i>&nbsp;
+                            <span>{{ 'Cadastrar produto' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/produto-consulta']"
+                            class="list-group-item">
+                            <i class="fa fa-fw fa-edit"></i>&nbsp;
+                            <span>{{ 'Consultar produto' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <div class="nested-menu">
+                <a class="list-group-item" (click)="addExpandClass('pages_categoria')">
+                    <i class="fa fa-plus"></i>&nbsp;
+                    <span>{{ 'Categoria de Produto' | translate }}</span>
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'pages_categoria'">
+                    <ul class="submenu">
+                        <li>
+                            <a [routerLink]="['/categoria']" [routerLinkActive]="['router-link-active']"
+                                class="list-group-item">
+                                <i class="fa fa-fw fa-edit"></i>&nbsp;
+                                <span style=" white-space: normal;">{{ 'Cadastrar categoria' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/categoria-consulta']" [routerLinkActive]="['router-link-active']"
+                                class="list-group-item">
+                                <i class="fa fa-fw fa-edit"></i>&nbsp;
+                                <span>{{ 'Consultar categoria' | translate }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+
+            <div class="nested-menu">
+                <a class="list-group-item" (click)="addExpandClass('pages_subcategoria')">
+                    <i class="fa fa-plus"></i>&nbsp;
+                    <span>{{ 'Subcategoria de Produto' | translate }}</span>
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'pages_subcategoria'">
+                    <ul class="submenu">
+                        <li>
+                            <a [routerLink]="['/subcategoria']"
+                                class="list-group-item">
+                                <i class="fa fa-fw fa-edit"></i>&nbsp;
+                                <span style=" white-space: normal;">{{ 'Cadastrar subcategoria' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/subcategoria-consulta']"
+                                class="list-group-item">
+                                <i class="fa fa-fw fa-edit"></i>&nbsp;
+                                <span style=" white-space: normal;">{{ 'Consultar subcategoria' | translate }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+
+        <div class="nested-menu">
+                <a class="list-group-item" (click)="addExpandClass('pages_usuarios')">
+                    <i class="fa fa-plus"></i>&nbsp;
+                    <span>{{ 'Usuario' | translate }}</span>
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'pages_usuarios'">
+                    <ul class="submenu">
+                        <li>
+                            <a [routerLink]="['/users']" [routerLinkActive]="['router-link-active']"
+                                class="list-group-item">
+                                <i class="fa fa-fw fa-edit"></i>&nbsp;
+                                <span>{{ 'Cadastrar usuario' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/users-list']" [routerLinkActive]="['router-link-active']"
+                                class="list-group-item">
+                                <i class="fa fa-fw fa-edit"></i>&nbsp;
+                                <span>{{ 'Consultar usuario' | translate }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+
+        <div class="header-fields">
+            <a (click)="rltAndLtr()" class="list-group-item">
+                <span><i class="fa fa-arrows-h"></i>&nbsp; D/E</span>
+            </a>
+            <div class="nested-menu">
+                <a class="list-group-item" (click)="addExpandClass('languages')">
+                    <span><i class="fa fa-language"></i>&nbsp; {{ 'Idioma' | translate }} <b class="caret"></b></span>
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'languages'">
+                    <ul class="submenu">
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('pt')">
+                                {{ 'Português' | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('en')">
+                                {{ 'Inglês' | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('fr')">
+                                {{ 'Francês' | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('ur')">
+                                {{ 'Urdu' | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('es')">
+                                {{ 'Espanhol' | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('it')">
+                                {{ 'Italiano' | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('fa')">
+                                {{ 'Persa' | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('de')">
+                                {{ 'Alemão' | translate }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+            <div class="nested-menu">
+                <a class="list-group-item" (click)="addExpandClass('profile')">
+                    <span><i class="fa fa-user"></i>&nbsp; Madson Silva</span>
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'profile'">
+                    <ul class="submenu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span><i class="fa fa-fw fa-user"></i> {{ 'Perfil' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span><i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span><i class="fa fa-fw fa-gear"></i> {{ 'Configuração' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/login']" (click)="onLoggedout()">
+                                <span><i class="fa fa-fw fa-power-off"></i> {{ 'Sair' | translate }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </div>
+    <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+        <i class="fa fa-fw fa-angle-double-left"></i>&nbsp;
+        <span>{{ 'Recolher' | translate }}</span>
+    </div>
+</nav>

@@ -1,0 +1,42 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img src="assets/images/logo.png" width="150px" class="user-avatar" />
+            <h1>Soniflores e Eventos</h1>
+            <form #form="ngForm">
+                <div class="alert alert-error" role="alert" *ngIf="message">
+                    <strong>Email ou senha invalido</strong>
+                </div> 
+                <div class="form-content">
+                    <div [ngClass]="getFormGroupClass(email.invalid, email.dirty)">
+                        <input 
+                            type="email"
+                            name="email" 
+                            [(ngModel)]="user.email"
+                            class="form-control input-underline input-lg" 
+                            id="email"
+                            #email="ngModel" 
+                            placeholder="Email"
+                            email>
+                        <span class="help-block" *ngIf="email.invalid && email.dirty">Email invalido</span>
+                    </div>
+
+                    <div [ngClass]="getFormGroupClass(senha.invalid, senha.dirty)">
+                        <input 
+                            type="password" 
+                            name="senha" 
+                            [(ngModel)]="user.senha"
+                            #senha="ngModel" 
+                            class="form-control input-underline input-lg" 
+                            id="senha" 
+                            placeholder="Senha"
+                            required>
+                            <span class="help-block" *ngIf="senha.invalid && senha.dirty">Senha invalida</span>
+                    </div>
+                </div>
+                <a class="btn rounded-btn" type="submit" [routerLink]="['/dashboard']" (click)="onLoggedin()"> Entrar </a>
+                &nbsp;
+            </form>
+        </div>
+    </div>
+</div>
